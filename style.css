@@ -1,0 +1,38 @@
+header {
+    text-align: center;
+    font-size: xx-large;
+
+    
+}
+
+.start-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border: 3px solid green;
+  margin-left: 350px;
+  margin-top: 400px;
+}
+
+.next-btn-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border: 3px solid green;
+    margin-left: 350px;
+    margin-top: 10px;
+}
+
+/*.container {
+
+}
+
+.hide {
+
+}
+
+#question-container {
+
+}*/
