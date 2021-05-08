@@ -3,45 +3,7 @@
 //var timerEl = document.getElementById('#start-btn');
 //var mainEl = document.getElementById('main');
 
-
-//Timer
-let timeLeftDisplay = document.querySelector("#time-left");
-let timeLeft = 75;
-let startBtn = document.querySelector("#start-button");
-
-function timerFunction() {
-    setInterval(function () {
-      if (timeLeft <= 0) {
-        clearInterval(timeLeft = 0);
-      }
-      timeLeftDisplay.innerHTML = timeLeft;
-      timeLeft -= 1;
-    }, 1000);
-  }
-
-  startBtn.addEventListener("click", timerFunction);
-
- 
- //intro---add event listener to make start button and intro text with rules disappear
-
- let intro = document.getElementById("intro")
-    intro.innerHTML = "Coding Quiz Rules: Timer is deducted for each incorrect answer.";
-
-//make intro and and start button disappear when start button is clicked
- 
-setAttribute("display", "none").
- 
- 
- 
- 
- 
- 
- 
-
-
-//Questions
-
-const myQuestion = [
+const questions = [
     {
         question: "Who invented JavaScript?",
         answers: {
@@ -67,165 +29,137 @@ const myQuestion = [
         answers: {
             a: "Angular",
             b: "jQuery",
-            c: "RequireJS",
-            d: "ESLint"
+            c: "ESLint",
+
 
         },
-        correctAnswer: "d"
-    }
+        correctAnswer: "c"
 
-]
+    },
 
-
-//building function to show questions on page
-//html array for output
-
-
-
-
+    {
+        question: "What is the name of the tool you can use for sampling CSS?",
+        answers: {
+            a: "CSS",
+            b: "Bootstrap",
+            c: "JQuery",
 
 
-//email contact page----separate HTML file
+        },
+        correctAnswer: "b"
+    },
+
+
+];
+
+let questionsDiv = document.getElementById("questions");
+let question = document.getElementById("question");
+let buttonOne = document.getElementById("choiceone");
+let buttonTwo = document.getElementById("choicetwo");
+let buttonThree = document.getElementById("choicethree");
+//let buttonFour = document.getElementById("choicefour");
+let counter = 0;
 
 
 
 
 
+//Timer
+let timeLeftDisplay = document.querySelector("#time-left");
+let timeLeft = 75;
+let startBtn = document.querySelector("#start-button");
 
-/*document.getElementById('#start-btn').addEventListener('click', timerFunction);
+let questionOne = document.getElementById("question-1");
+let questionTwo = document.getElementById("question-2");
+let questionThree = document.getElementById("question-3");
+let questionFour = document.getElementById("question-4");
+let buttonQ1 = document.getElementById("1a");
+let buttonQ2 = document.getElementById("1b");
+let buttonQ3 = document.getElementById("1c");
+let buttonQ4 = document.getElementById("1d");
+
 
 function timerFunction() {
-
-
-    const timeLeftDisplay = document.querySelector("#time-left")
-    const startBtn = document.querySelector("#start-button")
-    let timeLeft = 10;
-
-    function countDown() {
-        setInterval(function() {
-            if(timeLeft <= 0 ) {
-                clearInterval(timeLeft = 0)
-            }
-            timeLeftDisplay.innerHTML = timeLeft
-            timeLeft -=1
-
-        }, 1000)
-    }
-
-    startBtn.addEventListener('click', countDown)
-}
-
-
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*var counter = 0;
-function setup() {
-    noCanvas();
-
-    var timeLeft = select('#time-left');
-    timeLeft.html('0');
-
-    function timeIt() {
-        counter++;
-        timeLeft.html(counter);
-        
-    }
-
-    setInterval(timeIt, 1000);
-
-    startBtn.addEventListener('click', timeIt)
-}
-
-*/
-
-
-
-
-/*function coundown() {
-    var timeLeft = 75;
-
-    var timeInterval = setInterval(function() {
-        
-        if (timeLeft > 1) {
-
-            timerEl.textContent = timeLeft + 'seconds remaining';
-
-            timeLeft--;
-       
-        } else if (timeLeft === 1) {
-
-            timerEl.textContent = timeLeft + ' second remaining';
-            timeLeft--;
-        } else {
-            timerEl.textContent = '';
-            clearInterval(timeInterval);
-            displayMessage();
-
-            
+    setInterval(function () {
+        if (timeLeft <= 0) {
+            clearInterval(timeLeft = 0);
         }
+        timeLeftDisplay.innerHTML = timeLeft;
+        timeLeft -= 1;
     }, 1000);
+
+    /*questionOne.style.display = "block";
+    buttonQ1.addEventListener("click", checkAnswers);
+    buttonQ2.addEventListener("click", checkAnswers);
+    buttonQ3.addEventListener("click", checkAnswers);
+    */
+    questionsDiv.style.display = "block";
+    showQuestions()
 }
 
-*/
-
-
-
-
-
-
-/*document.getElementById('start-btn').addEventListener('click', timerFunction);
-
-function timerFunction() {
-    
-    const timeLeftDisplay = document.querySelector('time-left')
-    const startBtn = document.querySelector('start-btn')
-    let timeLeft = 50;
-    console.log(timeLeftDisplay);
-    function countDown(){
-        setInterval(function(){
-            if(timeLeft <= 0 ) {
-                clearInterval(timeLeft = 0)
-            }
-            timeLeftDisplay.innerHTML = timeLeft
-            timeLeft -=1
-        }, 1000)
+function checkAnswers() {
+    //console.log("Clicked once");
+    // if the clicked button represents the correct answer, yay
+    if (buttonOne) {
+        message = "false"
+    } else {
+        message = "true";
     }
+      
 
-    startBtn.addEventListener('click', countDown)
+// clicked button = event.target.id (choiceone, choicetwo, choice3)
+       
 
+
+
+
+// correct answer is question.correctAnswer
+    counter++;
+    // if counter > questions.length, don't do it
+    showQuestions();
+
+    //event.target for specific answers to questions
+
+    }
+function showQuestions() {
+    console.log(" HMM", questions, counter, questions[counter]);
+
+    console.log(questions[counter].question)
+    question.innerHTML = questions[counter].question;
+
+    console.log(questions[counter].answers.a)
+    buttonOne.innerHTML = questions[counter].answers.a
+    buttonOne.addEventListener("click", checkAnswers);
+
+    console.log(questions[counter].answers.b)
+    buttonTwo.innerHTML = questions[counter].answers.b
+    buttonTwo.addEventListener("click", checkAnswers);
+
+    console.log(questions[counter].answers.c)
+    buttonThree.innerHTML = questions[counter].answers.c
+    buttonThree.addEventListener("click", checkAnswers);
+
+    
 }
+startBtn.addEventListener("click", timerFunction);
+
+
+
+
+
+
+
+let intro = document.getElementById("intro")
+intro.innerHTML = "Coding Quiz Rules: Timer is deducted for each incorrect answer.";
+
+/*
+NOTES
+event. target for specific answers to questions (right and wrong)
+timer deduction for incorrect answers
+link to second html page with initials field----local storage
+
+
+NOTES
+
 
 */
-
-
-
-//PSEDUO CODE
-
-//Timer----timer must subtract time for incorrect answer
-
-//show questions----cards? separate linked pages?
-
-//answer buttons 
-
-//local storage for email???
