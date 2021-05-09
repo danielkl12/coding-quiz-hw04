@@ -1,4 +1,5 @@
-
+let checkAnswers;
+let correctAnswer;
 const questions = [
     {
         question: "Who invented JavaScript?",
