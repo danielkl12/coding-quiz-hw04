@@ -1,5 +1,7 @@
-let checkAnswers;
-let correctAnswer;
+
+
+
+
 const questions = [
     {
         question: "Who invented JavaScript?",
@@ -84,15 +86,9 @@ function timerFunction() {
 function checkAnswers() {
     //console.log("Clicked once");
     // if the clicked button represents the correct answer, yay
-   if (answers===correctAnswer) {
-    questions.array++;
+   
 
-    } else {
-        return checkAnswers;
-        
-    }
-
-
+    
     
     
 
