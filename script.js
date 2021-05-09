@@ -1,8 +1,4 @@
 
-
-//var timerEl = document.getElementById('#start-btn');
-//var mainEl = document.getElementById('main');
-
 const questions = [
     {
         question: "Who invented JavaScript?",
@@ -57,18 +53,10 @@ let question = document.getElementById("question");
 let buttonOne = document.getElementById("choiceone");
 let buttonTwo = document.getElementById("choicetwo");
 let buttonThree = document.getElementById("choicethree");
-//let buttonFour = document.getElementById("choicefour");
 let counter = 0;
-
-
-
-
-
-//Timer
 let timeLeftDisplay = document.querySelector("#time-left");
 let timeLeft = 75;
 let startBtn = document.querySelector("#start-button");
-
 let questionOne = document.getElementById("question-1");
 let questionTwo = document.getElementById("question-2");
 let questionThree = document.getElementById("question-3");
@@ -78,7 +66,7 @@ let buttonQ2 = document.getElementById("1b");
 let buttonQ3 = document.getElementById("1c");
 let buttonQ4 = document.getElementById("1d");
 
-
+//Timer
 function timerFunction() {
     setInterval(function () {
         if (timeLeft <= 0) {
@@ -88,11 +76,6 @@ function timerFunction() {
         timeLeft -= 1;
     }, 1000);
 
-    /*questionOne.style.display = "block";
-    buttonQ1.addEventListener("click", checkAnswers);
-    buttonQ2.addEventListener("click", checkAnswers);
-    buttonQ3.addEventListener("click", checkAnswers);
-    */
     questionsDiv.style.display = "block";
     showQuestions()
 }
@@ -100,12 +83,18 @@ function timerFunction() {
 function checkAnswers() {
     //console.log("Clicked once");
     // if the clicked button represents the correct answer, yay
-    if (buttonOne) {
-        message = "false"
+   if (answers===correctAnswer) {
+    questions.array++;
+
     } else {
-        message = "true";
+        return checkAnswers;
+        
     }
-      
+
+
+    
+    
+
 
 // clicked button = event.target.id (choiceone, choicetwo, choice3)
        
